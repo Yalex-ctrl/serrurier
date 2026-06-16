@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clé & Protection — Serrurier Paris & Île-de-France</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #111827;
+    --black-soft: #1f2937;
+    --green: #059669; /* Émeraude rassurant */
+    --green-hover: #047857;
+    --text-grey: #4b5563;
+    --bg-grey: #f3f4f6;
+    --white: #ffffff;
+    --border: #e5e7eb;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Outfit', sans-serif; }
+  html { scroll-behavior: smooth; }
+  body { background-color: var(--bg-grey); color: var(--black); }
+
+  /* NAVBAR */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 1000;
+    background: var(--black); color: var(--white);
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1rem 5%; height: 80px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  }
+  .logo { font-size: 1.5rem; font-weight: 900; color: var(--white); text-decoration: none; display: flex; align-items: center; gap: 10px; letter-spacing: 1px; text-transform: uppercase; }
+  .logo svg { width: 28px; height: 28px; fill: var(--green); }
+  .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+  .nav-links a { text-decoration: none; color: #d1d5db; font-weight: 500; transition: color 0.2s; font-size: 0.95rem; }
+  .nav-links a:hover { color: var(--green); }
+  .btn-call { background: var(--green); color: var(--white); padding: 0.7rem 1.8rem; border-radius: 50px; font-weight: 700; text-decoration: none; transition: 0.3s; box-shadow: 0 4px 15px rgba(5, 150, 105, 0.3); }
+  .btn-call:hover { background: var(--green-hover); transform: scale(1.05); }
+
+  /* HERO SECTION */
+  .hero {
+    margin-top: 80px; padding: 7rem 5%;
+    background: var(--black) url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="1" fill="rgba(255,255,255,0.05)"/></svg>');
+    color: var(--white); text-align: center;
+  }
+  .status-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(5, 150, 105, 0.15); border: 1px solid var(--green); padding: 0.5rem 1.2rem; border-radius: 50px; font-size: 0.9rem; font-weight: 500; margin-bottom: 2rem; color: #34d399; }
+  .pulse { width: 8px; height: 8px; background: var(--green); border-radius: 50%; box-shadow: 0 0 0 0 rgba(5, 150, 105, 1); animation: pulse 2s infinite; }
+  @keyframes pulse { 0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0.7); } 70% { transform: scale(1); box-shadow: 0 0 0 10px rgba(5, 150, 105, 0); } 100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(5, 150, 105, 0); } }
+  .hero h1 { font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 900; line-height: 1.1; margin-bottom: 1.5rem; }
+  .hero p { font-size: 1.2rem; max-width: 650px; margin: 0 auto 3rem auto; color: #9ca3af; }
+
+  /* TRUST BAR */
+  .trust-bar { display: flex; justify-content: center; gap: 4rem; flex-wrap: wrap; background: var(--white); padding: 2.5rem 5%; border-bottom: 1px solid var(--border); }
+  .trust-item { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; font-weight: 700; color: var(--black); }
+  .trust-item svg { width: 32px; height: 32px; stroke: var(--green); fill: none; stroke-width: 1.5; }
+  .trust-item span { font-size: 0.9rem; color: var(--text-grey); font-weight: 400; }
+
+  /* SERVICES */
+  .services { padding: 6rem 5%; max-width: 1200px; margin: 0 auto; }
+  .section-title { font-size: 2.5rem; font-weight: 900; text-align: center; margin-bottom: 4rem; color: var(--black); }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+  .card { background: var(--white); padding: 3rem 2rem; border-radius: 12px; border: 1px solid var(--border); transition: all 0.3s ease; position: relative; overflow: hidden; }
+  .card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px; background: var(--green); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+  .card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.05); }
+  .card:hover::before { transform: scaleX(1); }
+  .card svg { width: 40px; height: 40px; stroke: var(--black); stroke-width: 1.5; fill: none; margin-bottom: 1.5rem; }
+  .card h3 { font-size: 1.4rem; margin-bottom: 1rem; color: var(--black); font-weight: 700; }
+  .card p { color: var(--text-grey); font-size: 1rem; line-height: 1.6; }
+
+  /* BANNER CALL TO ACTION */
+  .cta-banner { background: var(--black); color: var(--white); padding: 4rem 5%; text-align: center; }
+  .cta-banner h2 { font-size: 2rem; margin-bottom: 1.5rem; }
+  .cta-btn-large { background: var(--green); color: white; padding: 1rem 3rem; border-radius: 50px; font-size: 1.2rem; font-weight: 700; text-decoration: none; display: inline-block; transition: 0.3s; }
+  .cta-btn-large:hover { background: var(--green-hover); }
+
+  /* TARIFS */
+  .tarifs { background: var(--bg-grey); padding: 6rem 5%; }
+  .tarifs-box { max-width: 800px; margin: 0 auto; background: var(--white); padding: 3rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+  .tarif-row { display: flex; justify-content: space-between; align-items: center; padding: 1.2rem 0; border-bottom: 1px solid var(--border); }
+  .tarif-row:last-child { border-bottom: none; }
+  .tarif-name { font-weight: 500; color: var(--black); font-size: 1.1rem; }
+  .tarif-price { font-weight: 900; color: var(--green); font-size: 1.3rem; }
+  .tarif-disclaimer { text-align: center; font-size: 0.85rem; color: var(--text-grey); margin-top: 2rem; padding-top: 2rem; border-top: 1px dashed var(--border); }
+
+  /* FOOTER */
+  footer { background: var(--black); color: #9ca3af; padding: 4rem 5% 2rem 5%; text-align: center; }
+  .footer-logo { font-size: 1.5rem; font-weight: 900; color: var(--white); text-decoration: none; margin-bottom: 1rem; display: inline-block; }
+  .footer-legal { margin-top: 3rem; font-size: 0.85rem; padding-top: 2rem; border-top: 1px solid #374151; }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hero { padding: 4rem 5%; }
+    .hero h1 { font-size: 2.5rem; }
+    .trust-bar { gap: 2rem; }
+    .tarifs-box { padding: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="logo">
+    <svg viewBox="0 0 24 24"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+    Clé & Protection
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Nos Services</a></li>
+    <li><a href="#tarifs">Tarifs Transparents</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="tel:+33123456789" class="btn-call">01 23 45 67 89</a>
+</nav>
+
+<header class="hero">
+  <div class="status-badge">
+    <div class="pulse"></div>
+    Artisans disponibles actuellement
+  </div>
+  <h1>L'Expertise Sécurité.<br>Sans compromis.</h1>
+  <p>Une porte claquée, une serrure endommagée ou un besoin de sécurisation après effraction ? Nous intervenons chez vous en un temps record avec du matériel certifié A2P.</p>
+</header>
+
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+    Intervention 30 min
+    <span>Déplacement rapide garanti</span>
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg>
+    Agréé Assurances
+    <span>Matériel certifié A2P</span>
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+    Devis Gratuit
+    <span>Avant toute intervention</span>
+  </div>
+</div>
+
+<section id="services" class="services">
+  <h2 class="section-title">Nos Domaines d'Intervention</h2>
+  
+  <div class="grid">
+    <div class="card">
+      <svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+      <h3>Ouverture de porte</h3>
+      <p>Porte claquée ou fermée à clé ? Nous utilisons des techniques non destructives (radio) pour préserver votre serrure à 100%.</p>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 24 24"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      <h3>Remplacement de Serrure</h3>
+      <p>Changement de cylindre ou installation de serrure multipoints de haute sécurité suite à une perte de clés, un vol ou un emménagement.</p>
+    </div>
+    <div class="card">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      <h3>Blindage & Sécurisation</h3>
+      <p>Installation de portes blindées sur-mesure, pose de cornières anti-pinces et renforcement de vos accès face aux tentatives d'effraction.</p>
+    </div>
+  </div>
+</section>
+
+<div class="cta-banner">
+  <h2>Une urgence en pleine nuit ? Nous sommes prêts.</h2>
+  <a href="tel:+33123456789" class="cta-btn-large">Appeler un technicien</a>
+</div>
+
+<section id="tarifs" class="tarifs">
+  <h2 class="section-title">Grille Tarifaire Nette & Précise</h2>
+  <div class="tarifs-box">
+    <div class="tarif-row">
+      <span class="tarif-name">Frais de déplacement</span>
+      <span class="tarif-price">45 €</span>
+    </div>
+    <div class="tarif-row">
+      <span class="tarif-name">Ouverture de porte claquée (sans casse)</span>
+      <span class="tarif-price">dès 79 €</span>
+    </div>
+    <div class="tarif-row">
+      <span class="tarif-name">Ouverture de porte verrouillée</span>
+      <span class="tarif-price">dès 119 €</span>
+    </div>
+    <div class="tarif-row">
+      <span class="tarif-name">Remplacement cylindre européen standard</span>
+      <span class="tarif-price">dès 89 €</span>
+    </div>
+    <div class="tarif-row">
+      <span class="tarif-name">Installation serrure 3 points A2P*</span>
+      <span class="tarif-price">Sur devis</span>
+    </div>
+    <div class="tarif-disclaimer">
+      Tous nos prix s'entendent Hors Taxes (TVA applicable selon votre situation). <br><strong>Une majoration de 50% est appliquée pour les interventions de nuit (20h-8h), les week-ends et les jours fériés.</strong>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <a href="#" class="footer-logo">
+    <svg viewBox="0 0 24 24" style="width: 20px; height: 20px; fill: var(--green); display: inline-block; vertical-align: middle;"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 1 1-7.778 7.778 5.5 5.5 0 0 1 7.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+    Clé & Protection
+  </a>
+  <p>Artisans Serruriers Intervenant à Paris et en Île-de-France.</p>
+  <div class="footer-legal">
+    © 2026 Clé & Protection. Tous droits réservés. | SIRET : 987 654 321 00010
+  </div>
+</footer>
+
+</body>
+</html>
